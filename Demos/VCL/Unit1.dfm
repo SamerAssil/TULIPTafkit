@@ -42,6 +42,7 @@ object Form1: TForm1
     Cent.From3To9Pounds = #1602#1585#1608#1588
     Cent.OnePound_tanwin = #1602#1585#1588#1575#1611
     Cent.Sex = s_Male
+    WriteNum = #1589#1601#1585
     Left = 72
     Top = 32
   end

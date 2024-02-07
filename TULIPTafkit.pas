@@ -236,6 +236,11 @@ Var
   i: SmallInt;
   W: String;
 begin
+  if Num = 0 then
+    begin
+      result := ZeroNum;
+      exit;
+    end;
   // تصليح : عزل الجزء القروش عن جزء الليرات ثم جمع الرقمين المكتوبين
   S := '';
   W := '';
