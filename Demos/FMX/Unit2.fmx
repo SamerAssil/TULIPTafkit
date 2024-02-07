@@ -1,0 +1,44 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 183
+  ClientWidth = 514
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Edit1: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 1
+    Position.X = 384.000000000000000000
+    Position.Y = 32.000000000000000000
+    OnChangeTracking = Edit1ChangeTracking
+  end
+  object Label1: TLabel
+    Position.X = 48.000000000000000000
+    Position.Y = 62.000000000000000000
+    Size.Width = 436.000000000000000000
+    Size.Height = 83.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Trailing
+    Text = 'Label1'
+    TabOrder = 2
+  end
+  object TULIPTafkit1: TTULIPTafkit
+    Pound.PoundName = #1604#1610#1585#1577
+    Pound.OnePound = #1604#1610#1585#1577
+    Pound.TwoPounds = #1604#1610#1585#1578#1575#1606
+    Pound.From3To9Pounds = #1604#1610#1585#1575#1578
+    Pound.OnePound_tanwin = #1604#1610#1585#1577#1611
+    Pound.Sex = s_Female
+    Cent.PoundName = #1602#1585#1588
+    Cent.OnePound = #1602#1585#1588
+    Cent.TwoPounds = #1602#1585#1588#1575#1606
+    Cent.From3To9Pounds = #1602#1585#1608#1588
+    Cent.OnePound_tanwin = #1602#1585#1588#1575#1611
+    Cent.Sex = s_Male
+    Left = 128
+    Top = 32
+  end
+end
