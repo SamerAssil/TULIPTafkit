@@ -17,9 +17,11 @@ unit TULIPTafkit;
 interface
 
 uses
-  System.SysUtils,
-  System.Classes,
-  Vcl.StdCtrls;
+{$IF CompilerVersion >= 23.0}
+  System.SysUtils, System.Classes, Vcl.StdCtrls;
+{$ELSE}
+  SysUtils, Classes, StdCtrls;
+{$ENDIF}
 
 Type
   TLevel   = 0 .. 5;
