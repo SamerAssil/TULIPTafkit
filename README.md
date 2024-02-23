@@ -2,3 +2,7 @@
 
 # TULIPTafkit
 تفقيط. تحويل الرقم إلى كتابة مقروءة حسب قواعد اللغة العربية النحوية
+
+
+https://github.com/SamerAssil/TULIPTafkit/assets/17685729/3ede29f3-6305-4e87-a045-e149e32db1c7
+
