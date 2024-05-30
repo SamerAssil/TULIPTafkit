@@ -78,7 +78,6 @@ const
   ZeroNum                           = 'صفر';
   Zero                              = 0;
   TensNum: Array [2 .. 9] of String = ('عشرون', 'ثلاثون', 'أربعون', 'خمسون', 'ستون', 'سبعون', 'ثمانون', 'تسعون');
-  // HundredsNum: Array[1..9] of String = ('مئة', 'مئتان', 'ثلاثمئة', 'أربعمئة', 'خمسمئة', 'ستمئة', 'سبعمئة', 'ثمانمئة', 'تسعمئة');
   PartsNum: Array [1 .. 3] of String = ('ربع', 'نصف', 'ثلاثة أرباع');
   OddNums: TOddNums                  = ('000', '001', '002', '011', '012', '200');
   OddMaleNums: TOddNums              = ('*****', 'واحد', 'اثنان', 'أحد', 'اثنا', '*****');
@@ -115,12 +114,9 @@ type
     FW2:              String;
     FWriteNum:        String;
     FisEndNum:        Boolean;
-//    FCountryPound:    String;
-//    FTwoCountryPound: String;
     FThereIsMore:     Boolean;
     OddWriteNums:    TOddNums;
     FOne_n_Pound:    String;
-//    FCountryPound_n: String;
     FNeedParam:      Boolean;
     procedure SetStrNum(const Value: TStrNum);
     Function MakeWriteNum: String;
@@ -144,9 +140,6 @@ type
     Property W2: String read FW1 write FW1;
     Property W3: String read FW2 write FW2;
     Property WriteNum: String read GetWriteNum write FWriteNum;
-//    Property CountryPound: String read FCountryPound write FCountryPound;
-//    Property TwoCountryPound: String read FTwoCountryPound write FTwoCountryPound;
-//    Property CountryPound_tanwin: String read FCountryPound_n write FCountryPound_n;
     property ThereIsMore: Boolean read FThereIsMore write SetThereIsMore;
     property One_tanwin_Pound: String read FOne_n_Pound write FOne_n_Pound;
     Property NeedParam: Boolean read FNeedParam write FNeedParam;
@@ -161,19 +154,11 @@ type
     FWriteNum:              String;
     FNum:                   Real;
     Parts:                  TFiveParts;
-//    FCountryPound:          String;
-//    FCountryPound_n:        String;
     PartStrNum:             Array [0 .. 5] of String;
-//    FTwoMaleCountryPound:   String;
-//    FTwoFemaleCountryPound: String;
     procedure SetCent(const Value: TParam);
     procedure SetPound(const Value: TParam);
     procedure SetNum(const Value: Real);
     function GetWriteNum: String;
-//    procedure SetCountryPound(const Value: String);
-//    procedure SetCountryPound_n(const Value: String);
-//    procedure SetTwoFemaleCountryPound(const Value: String);
-//    procedure SetTwoMaleCountryPound(const Value: String);
   protected
     procedure FillParts;
     procedure Init;
@@ -185,10 +170,6 @@ type
     property Cent:                  TParam read FCent write SetCent;
     property WriteNum:              String read GetWriteNum write FWriteNum;
     Property Num:                   Real read FNum write SetNum;
-//    Property CountryPound:          String read FCountryPound write SetCountryPound;
-//    Property CountryPound_Tanwin:        String read FCountryPound_n write SetCountryPound_n;
-//    Property TwoMaleCountryPound:   String read FTwoMaleCountryPound write SetTwoMaleCountryPound;
-//    Property TwoFemaleCountryPound: String read FTwoFemaleCountryPound write SetTwoFemaleCountryPound;
   end;
 
 procedure Register;
@@ -226,9 +207,7 @@ begin
   Begin
     Parts[i].Param.GetDataFromParamRec(ConstsParts[i]);
     Parts[i].PoundName := Pound.PoundName;
-//    Parts[i].CountryPound := CountryPound;
-//    Parts[i].CountryPound_tanwin := CountryPound_Tanwin;
-//    Parts[i].TwoCountryPound := Self.TwoMaleCountryPound;
+
   end;
 end;
 
@@ -253,8 +232,6 @@ begin
       if S <> '' then
         S := ' و' + S;
       S := Parts[i].WriteNum + W + S;
-//      if (Parts[i].NeedParam = True) then
-//        S := S + ' ' + CountryPound;
     end;
   end;
   FWriteNum := S;
@@ -583,25 +560,6 @@ begin
   WriteNum := MakeWriteNum;
 end;
 
-//procedure TTULIPNumSource.SetCountryPound(const Value: String);
-//Var
-//  i: SmallInt;
-//begin
-//  FCountryPound := Value;
-//  for i := 0 to 5 do
-//  begin
-//    Parts[i].CountryPound := FCountryPound;
-//  end;
-//end;
-//
-//procedure TTULIPNumSource.SetCountryPound_n(const Value: String);
-//Var
-//  i: SmallInt;
-//begin
-//  FCountryPound_n := Value;
-//  for i := 0 to 5 do
-//    Parts[i].CountryPound_tanwin := FCountryPound_n;
-//end;
 
 procedure TTULIPTafkit.SetNum(const Value: Real);
 Var
@@ -673,33 +631,6 @@ begin
   FillParts;
 end;
 
-//procedure TTULIPNumSource.SetTwoFemaleCountryPound(const Value: String);
-//var
-//  i: SmallInt;
-//begin
-//  FTwoFemaleCountryPound := Value;
-//  for i := 0 to 5 do
-//    case Parts[i].Param.Sex of
-//      s_Male:
-//        Parts[i].TwoCountryPound := FTwoMaleCountryPound;
-//      s_Female:
-//        Parts[i].TwoCountryPound := FTwoFemaleCountryPound;
-//    end;
-//end;
-
-//procedure TTULIPNumSource.SetTwoMaleCountryPound(const Value: String);
-//var
-//  i: SmallInt;
-//begin
-//  FTwoMaleCountryPound := Value;
-//  for i := 0 to 5 do
-//    case Parts[i].Param.Sex of
-//      s_Male:
-//        Parts[i].TwoCountryPound := FTwoMaleCountryPound;
-//      s_Female:
-//        Parts[i].TwoCountryPound := FTwoFemaleCountryPound;
-//    end;
-//end;
 
 { TParam }
 
